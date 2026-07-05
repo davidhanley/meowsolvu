@@ -49,7 +49,7 @@
 (defn solve-board [board]
   (when-not (valid-board-shape? board)
     (throw (ex-info "Board must be a 9x9 grid with values between 0 and 9"
-                    {:board board})))
+                    {:error :invalid-board-shape})))
   (if-let [cell (best-empty-cell board)]
     (solve-at-cell board cell)
     board))
